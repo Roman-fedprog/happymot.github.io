@@ -19,8 +19,8 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      gap: 30px; /* spacing between folders */
-      flex-wrap: wrap; /* responsive */
+      gap: 30px; 
+      flex-wrap: wrap; 
       margin-top: 30px;
     }
 
@@ -31,9 +31,10 @@
       border-radius: 15px;
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
       cursor: pointer;
-      width: 300px; /* smaller width */
-      text-align: center; /* CENTER folder icon and title */
+      width: 300px; 
+      text-align: center; 
       position: relative;
+      border: 2px solid #bdbf65;
     }
 
     .folder-icon {
@@ -99,7 +100,7 @@
 
 <div class="folder-row">
 
-  <!-- First Folder -->
+ 
   <div class="folder-box" id="folderBox" onclick="toggleFolder()">
     <h1 class="folder-title">Our Photos</h1>
     <div class="folder-icon">📁</div>
@@ -113,7 +114,7 @@
     </div>
   </div>
   
-  <!-- Second Folder (Letter) -->
+ 
   <div class="folder-box" id="letterBox" onclick="toggleLetter()">
     <h2 class="folder-title">My Letter of Love and Appreciation for You, Love!</h2>
     <div class="folder-icon">📂</div>
@@ -135,7 +136,7 @@
     </div>
   </div>
 
-  <!-- Third Folder (Songs) -->
+
   <div class="folder-box" id="songsBox" onclick="toggleSongs()">
     <h3 class="folder-title">Our Favorite Songs</h3>
     <div class="folder-icon">📁</div>
@@ -164,7 +165,7 @@
     </div>
   </div>
 
-</div> <!-- end of folder-row -->
+</div> 
 
 <script>
   function toggleFolder() {
