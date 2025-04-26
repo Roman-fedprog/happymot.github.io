@@ -7,7 +7,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: url("images/LOVERS3.jpg");
+      background: url("images/LOVERS3.jpg") no-repeat center center/cover;
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -15,9 +15,13 @@
       overflow: hidden;
     }
 
-    .dashboard {
-      text-align: center;
-      color: white;
+    .folder-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 30px; /* spacing between folders */
+      flex-wrap: wrap; /* responsive */
+      margin-top: 30px;
     }
 
     .folder-box {
@@ -27,14 +31,16 @@
       border-radius: 15px;
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
       cursor: pointer;
-      width: 400px;
-      margin: 20px auto;
+      width: 300px; /* smaller width */
+      text-align: center; /* CENTER folder icon and title */
+      position: relative;
     }
 
     .folder-icon {
       font-size: 60px;
       margin-bottom: 10px;
       transition: transform 0.3s ease;
+      display: inline-block;
     }
 
     .folder-box.open .folder-icon {
@@ -80,38 +86,17 @@
       max-width: 400px;
       line-height: 1.5;
     }
-
-    .folder-row {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 40px; /* spacing between folders */
-      margin-top: 20px;
-      flex-wrap: wrap; /* if screen is small, they go down nicely */
-    }
-    .folder-row {
-      display: flex;
-      justify-content: center; /* center horizontally */
-      align-items: center; /* align to top */
-      gap: 30px; /* space between folders */
-      flex-wrap: wrap; /* if screen too small, they will move below */
-      margin-top: 30px;
-    }
-    .folder-box {
-      width: 300px; /* smaller so more folders fit in one row */
-    }
-    
   </style>
 </head>
 <body>
 
- <div class="folder-row">
+<div class="folder-row">
 
   <!-- First Folder -->
   <div class="folder-box" id="folderBox" onclick="toggleFolder()">
     <div class="folder-icon">📁</div>
     <div class="gallery">
-      <!-- your photos here -->
+      <!-- your photos will go here -->
     </div>
   </div>
 
@@ -119,7 +104,10 @@
   <div class="folder-box" id="letterBox" onclick="toggleLetter()">
     <div class="folder-icon">📂</div>
     <div class="gallery">
-      <!-- your letter here -->
+      <div class="letter-content">
+        Dear Love,<br><br>
+        <!-- your letter text -->
+      </div>
     </div>
   </div>
 
@@ -133,25 +121,22 @@
 
 </div> <!-- end of folder-row -->
 
+<script>
+  function toggleFolder() {
+    const folder = document.getElementById('folderBox');
+    folder.classList.toggle('open');
+  }
 
-  <script>
-    function toggleFolder() {
-      const folder = document.getElementById('folderBox');
-      folder.classList.toggle('open');
-    }
-    
-    function toggleLetter() {
-      const letter = document.getElementById('letterBox');
-      letter.classList.toggle('open');
-    }
-    
-    function toggleSongs() {
-      const songs = document.getElementById('songsBox');
-      songs.classList.toggle('open');
-    }
-    
-    
-  </script>
+  function toggleLetter() {
+    const letter = document.getElementById('letterBox');
+    letter.classList.toggle('open');
+  }
+
+  function toggleSongs() {
+    const songs = document.getElementById('songsBox');
+    songs.classList.toggle('open');
+  }
+</script>
 
 </body>
 </html>
