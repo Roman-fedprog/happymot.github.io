@@ -68,19 +68,19 @@
       transform: scale(1.05);
     }
 
-    .letter {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(8px);
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-    max-width: 400px;
-    color: white;
-    font-size: 16px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    text-align: left;
-    line-height: 1.5;
+    .letter-content {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      text-align: left;
+      max-width: 400px;
+      line-height: 1.5;
 }
+
 
     
   </style>
@@ -100,17 +100,22 @@
       </div>
     </div>
   </div>
-  <div class="folder-container">
+  
+ <!-- Second Folder (Letter Folder) -->
+<div class="folder-container">
   <div class="folder-icon" onclick="openLetter()">📂</div>
 
-  <div class="letter" id="letter" style="display: none;">
-    <p>
-      Dear Love, <br><br>
-      Happy first month to us! ❤️ Every day with you has been a beautiful story I’ll always cherish.
-      Thank you for being the light of my days. Here's to many more memories together! 💌<br><br>
-      Love always,<br>
-      You 💚
-    </p>
+  <!-- Hidden letter (like gallery) -->
+  <div class="gallery" id="letter">
+    <div class="letter-content">
+      <p>
+        Dear Love, <br><br>
+        Happy first month to us! ❤️ Every day with you has been a beautiful story I’ll always cherish.
+        Thank you for being the light of my days. Here's to many more memories together! 💌<br><br>
+        Love always,<br>
+        You 💚
+      </p>
+    </div>
   </div>
 </div>
 
@@ -120,14 +125,24 @@
       folder.classList.toggle('open');
     }
 
+    function openFolder() {
+      const gallery = document.getElementById('gallery');
+      if (gallery.style.display === 'none' || gallery.style.display === '') {
+        gallery.style.display = 'flex';
+      } else {
+        gallery.style.display = 'none';
+      }
+    }
+    
     function openLetter() {
       const letter = document.getElementById('letter');
-    if (letter.style.display === 'none' || letter.style.display === '') {
-      letter.style.display = 'block';
-    } else {
-      letter.style.display = 'none';
+      if (letter.style.display === 'none' || letter.style.display === '') {
+        letter.style.display = 'flex';
+      } else {
+        letter.style.display = 'none';
+      }
     }
-  }
+
 
     
   </script>
