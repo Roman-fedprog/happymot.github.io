@@ -28,7 +28,7 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
       cursor: pointer;
       width: 400px;
-      position: relative;
+      margin: 20px auto;
     }
 
     .folder-icon {
@@ -79,16 +79,15 @@
       text-align: left;
       max-width: 400px;
       line-height: 1.5;
-}
-
-
-    
+    }
   </style>
 </head>
 <body>
 
   <div class="dashboard">
     <h1>Our Photos!</h1>
+
+    <!-- Photo Folder -->
     <div class="folder-box" id="folderBox" onclick="toggleFolder()">
       <div class="folder-icon">📁</div>
       <div class="gallery">
@@ -100,25 +99,24 @@
         <img src="images/LOVERS5.png" alt="Photo 6">
       </div>
     </div>
-  </div>
-  
- <!-- Second Folder (Letter Folder) -->
-<div class="folder-container">
-  <div class="folder-icon" onclick="openLetter()">📂</div>
 
-  <!-- Hidden letter (like gallery) -->
-  <div class="gallery" id="letter">
-    <div class="letter-content">
-      <p>
-        Dear Love, <br><br>
-        Happy first month to us! ❤️ Every day with you has been a beautiful story I’ll always cherish.
-        Thank you for being the light of my days. Here's to many more memories together! 💌<br><br>
-        Love always,<br>
-        You 💚
-      </p>
+    <!-- Letter Folder -->
+    <div class="folder-box" id="letterBox" onclick="toggleLetter()">
+      <div class="folder-icon">📂</div>
+      <div class="gallery">
+        <div class="letter-content">
+          <p>
+            Dear Love, <br><br>
+            Happy first month to us! ❤️ Every day with you has been a beautiful story I’ll always cherish.
+            Thank you for being the light of my days. Here's to many more memories together! 💌<br><br>
+            Love always,<br>
+            You 💚
+          </p>
+        </div>
+      </div>
     </div>
+
   </div>
-</div>
 
   <script>
     function toggleFolder() {
@@ -126,26 +124,10 @@
       folder.classList.toggle('open');
     }
 
-    function openFolder() {
-      const gallery = document.getElementById('gallery');
-      if (gallery.style.display === 'none' || gallery.style.display === '') {
-        gallery.style.display = 'flex';
-      } else {
-        gallery.style.display = 'none';
-      }
+    function toggleLetter() {
+      const letter = document.getElementById('letterBox');
+      letter.classList.toggle('open');
     }
-    
-    function openLetter() {
-      const letter = document.getElementById('letter');
-      if (letter.style.display === 'none' || letter.style.display === '') {
-        letter.style.display = 'flex';
-      } else {
-        letter.style.display = 'none';
-      }
-    }
-
-
-    
   </script>
 
 </body>
