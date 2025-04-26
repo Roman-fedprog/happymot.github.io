@@ -80,6 +80,16 @@
       max-width: 400px;
       line-height: 1.5;
     }
+
+    .folder-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px; /* spacing between folders */
+      margin-top: 20px;
+      flex-wrap: wrap; /* if screen is small, they go down nicely */
+}
+    
   </style>
 </head>
 <body>
@@ -127,16 +137,15 @@
     <div class="dashboard">
     <h3>Her Favorite Songs</h3>
 
-    <div class="folder-box" id="folderBox" onclick="toggleFolder()">
+    <div class="folder-box" id="songsBox" onclick="toggleSongs()">
       <div class="folder-icon">📁</div>
       <div class="gallery">
-        <img src="images/LOVERS.jpg" alt="Photo 1">
-        <img src="images/LOVERS1.png" alt="Photo 2">
-        <img src="images/LOVERS2.jpg" alt="Photo 3">
-        <img src="images/LOVERS3.jpg" alt="Photo 4">
-        <img src="images/LOVERS4.jpg" alt="Photo 5">
-        <img src="images/LOVERS5.png" alt="Photo 6">
+        <img src="images/LOVERS.jpg" alt="Song Photo 1">
+        <img src="images/LOVERS1.png" alt="Song Photo 2">
+        <img src="images/LOVERS2.jpg" alt="Song Photo 3">
       </div>
+    </div>
+
     </div>
 
   </div>
@@ -150,6 +159,11 @@
     function toggleLetter() {
       const letter = document.getElementById('letterBox');
       letter.classList.toggle('open');
+    }
+
+    function toggleSongs() {
+      const songs = document.getElementById('songsBox');
+      songs.classList.toggle('open');
     }
   </script>
 
