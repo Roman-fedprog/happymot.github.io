@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #7a9f79;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .folder-icon {
+      font-size: 80px;
+      color: #ffffff;
+      background: rgba(255,255,255,0.2);
+      padding: 20px;
+      border-radius: 15px;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: transform 0.2s ease;
+    }
+
+    .folder-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .gallery {
+      display: none;
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to Your Dashboard</h1>
+
+  <!-- Folder Icon -->
+  <div class="folder-icon" onclick="openFolder()">📁</div>
+
+  <!-- Hidden Gallery -->
+  <div class="gallery" id="gallery">
+    <img src="images/photo1.jpg" alt="Photo 1">
+    <img src="images/photo2.jpg" alt="Photo 2">
+    <img src="images/photo3.jpg" alt="Photo 3">
+    <!-- Add more images if you want -->
+  </div>
+
+  <script>
+    function openFolder() {
+      const gallery = document.getElementById('gallery');
+      if (gallery.style.display === 'none' || gallery.style.display === '') {
+        gallery.style.display = 'flex';
+      } else {
+        gallery.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>
 
