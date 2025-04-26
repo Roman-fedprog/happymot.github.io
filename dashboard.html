@@ -2,54 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard</title>
+  <title>Dashboard Folder</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #c0cfb2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       margin: 0;
+      font-family: Arial, sans-serif;
+      background: #7a9f79;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
     }
 
-    h1 {
+    .dashboard {
+      text-align: center;
       color: white;
-      margin-bottom: 30px;
+    }
+
+    .folder-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      cursor: pointer;
+      width: 400px;
+      position: relative;
     }
 
     .folder-icon {
-      font-size: 80px;
-      color: #ffffff;
-      background: rgba(255,255,255,0.2);
-      padding: 20px;
-      border-radius: 15px;
-      cursor: pointer;
-      backdrop-filter: blur(10px);
-      transition: transform 0.2s ease;
+      font-size: 60px;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
     }
 
-    .folder-icon:hover {
-      transform: scale(1.1);
+    .folder-box.open .folder-icon {
+      transform: rotateX(180deg);
     }
 
     .gallery {
       display: none;
-      margin-top: 30px;
-      display: flex;
+      margin-top: 20px;
       flex-wrap: wrap;
       gap: 10px;
       justify-content: center;
     }
 
+    .folder-box.open .gallery {
+      display: flex;
+    }
+
     .gallery img {
-      width: 150px;
-      height: 150px;
+      width: 100px;
+      height: 100px;
       object-fit: cover;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
       transition: transform 0.3s;
     }
 
@@ -60,30 +69,24 @@
 </head>
 <body>
 
-  <h1>Welcome to Your Dashboard</h1>
-
-  <!-- Folder Icon -->
-  <div class="folder-icon" onclick="openFolder()">📁</div>
-
-  <!-- Hidden Gallery -->
-  <div class="gallery" id="gallery">
-    <img src="images/LOVERS.jpg" alt="Photo 1">
-    <img src="images/LOVERS1.jpg" alt="Photo 2">
-    <img src="images/LOVERS2.jpg">
-    <!-- Add more images if you want -->
+  <div class="dashboard">
+    <h1>My Dashboard</h1>
+    <div class="folder-box" id="folderBox" onclick="toggleFolder()">
+      <div class="folder-icon">📁</div>
+      <div class="gallery">
+        <img src="images/LOVERS.jpg" alt="Photo 1">
+        <img src="images/LOVERS1.jpg" alt="Photo 2">
+        <img src="images/LOVERS2.jpg" alt="Photo 3">
+      </div>
+    </div>
   </div>
 
   <script>
-    function openFolder() {
-      const gallery = document.getElementById('gallery');
-      if (gallery.style.display === 'none' || gallery.style.display === '') {
-        gallery.style.display = 'flex';
-      } else {
-        gallery.style.display = 'none';
-      }
+    function toggleFolder() {
+      const folder = document.getElementById('folderBox');
+      folder.classList.toggle('open');
     }
   </script>
 
 </body>
 </html>
-
